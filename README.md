@@ -17,8 +17,13 @@ Clone this repository. Go into the root and run:
 
 ## Usage
 
-Copy mp3 files into root project folder
+Copy mp3 files into root project folder, or use the default mp3 there, it can load multiple files
 
 ```
 > npm run start
 ```
+
+In your browser go to 
+http://localhost:8080/stream 
+
+and go listen to some music :)
