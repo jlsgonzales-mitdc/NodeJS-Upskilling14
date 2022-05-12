@@ -25,7 +25,8 @@ const plugin = {
                 
                 const { id, responseSink } = queue.makeResponseSink();
                 request.app.sinkId = id;
-                return h.response(responseSink).type('audio/mpeg');
+                return h.response(responseSink).type('audio/ogg');
+                //return h.response(responseSink).type('audio/mpeg');
             },
             options: {
                 ext: {

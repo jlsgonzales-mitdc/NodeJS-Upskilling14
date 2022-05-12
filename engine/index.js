@@ -103,10 +103,10 @@ const _addPlaylistAndQueueListeners = () => {
 
 exports.start = () => {
 
-    _addPlaylistAndQueueListeners();
-    playlist.fillWithItems(Utils.readSongs());
-    view.appendBoxes([playlist.box, queue.box, nowPlaying.box, controls.box]);
-    view.render();
+    // _addPlaylistAndQueueListeners();
+    // playlist.fillWithItems(Utils.readSongs());
+    // view.appendBoxes([playlist.box, queue.box, nowPlaying.box, controls.box]);
+    // view.render();
     queue.init();
     queue.startStreaming();
 };
