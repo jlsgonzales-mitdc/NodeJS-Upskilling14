@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-require('./config');
 const Hapi = require('@hapi/hapi');
 const StaticFilePlugin = require('@hapi/inert');
 const Path = require('path');

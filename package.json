@@ -6,7 +6,8 @@
   "repository": "https://github.com/DarkMannn/node-radio-mini",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "bin": {
     "node-radio-mini": "./app.js"
