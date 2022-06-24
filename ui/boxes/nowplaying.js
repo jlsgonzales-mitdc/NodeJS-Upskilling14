@@ -1,9 +1,9 @@
 const { TerminalBox} = require('../shared'); 
 const { Config } = require('../shared');
 
-class Controls extends TerminalBox {
+class NowPlaying extends TerminalBox {
     constructor() {
-        super(Config.controls);
+        super(Config.nowplaying);
         this.setPlaylistTips();
     }
 
@@ -21,4 +21,4 @@ class Controls extends TerminalBox {
     }
 }
 
-module.exports = Controls;
+module.exports = NowPlaying;

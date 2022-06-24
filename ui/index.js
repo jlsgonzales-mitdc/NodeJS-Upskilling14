@@ -1,10 +1,24 @@
 const {View} = require('./view');
-const {Controls} = require('./boxes');
+const { 
+    Controls, 
+    Playlist,
+    NowPlaying,
+    Queue
+} = require('./boxes');
+
 const ui = new View();
-const ctrls = new Controls();
+const controls = new Controls();
+const playlist = new Playlist();
+const nowplaying = new NowPlaying();
+const queue = new Queue();
 
 function start() {
-    ui.appendBoxes(ctrls.box);
+    ui.appendBoxes(
+        controls.box,
+        playlist.box,
+        nowplaying.box,
+        queue.box
+    );
     ui.render();
 }
 

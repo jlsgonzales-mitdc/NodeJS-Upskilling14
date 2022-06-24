@@ -6,6 +6,4 @@ class TerminalBox {
 }
 
 
-module.exports = { 
-    TerminalBox
-};
+module.exports = TerminalBox;
