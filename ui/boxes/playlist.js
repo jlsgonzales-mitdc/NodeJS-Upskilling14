@@ -1,24 +1,15 @@
-const { TerminalBox} = require('../shared'); 
+const { TerminalBox, TerminalList} = require('../shared'); 
 const { Config } = require('../shared');
 
-class Playlist extends TerminalBox {
+class Playlist extends TerminalList {
     constructor() {
         super(Config.playlist);
-        this.setPlaylistTips();
     }
 
-    setPlaylistTips() {
-        this.box.content = `
-            3213123212
-        `;
+    addTrack(filename) {
+        this.list.add(filename);
     }
-    setQueueTips() {
-        this.box.content = `
-            test 123
-            123
-            123
-        `;
-    }
+
 }
 
 module.exports = Playlist;

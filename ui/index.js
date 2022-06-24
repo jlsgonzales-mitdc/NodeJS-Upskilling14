@@ -15,7 +15,7 @@ const queue = new Queue();
 function start() {
     ui.appendBoxes(
         controls.box,
-        playlist.box,
+        playlist.list,
         nowplaying.box,
         queue.box
     );
