@@ -5,6 +5,7 @@ const StaticFilePlugin = require('@hapi/inert');
 const Path = require('path');
 const Routes = require('./routes');
 const Engine = require('./engine');
+const UI = require('./ui');
 
 void async function startApp() {
 
@@ -18,6 +19,7 @@ void async function startApp() {
         await server.register(StaticFilePlugin);
         await server.register(Routes);
 
+        UI.start();
         Engine.start();
         await server.start();
         console.log(`Server running at: ${server.info.uri}`);
