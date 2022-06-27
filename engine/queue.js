@@ -7,6 +7,7 @@ const Throttle = require('throttle');
 // const { ffprobeSync } = require('@dropb/ffprobe');
 
 const Utils = require('../utils');
+const AddedSong = require('../shared/events/AddedSong');
 
 class Queue  { 
 
@@ -15,10 +16,17 @@ class Queue  {
         this._songs = []; // list of queued up songs
         this._currentSong = null;
         this.stream = new EventEmitter();
+        this._queue = new EventEmitter();
     }
 
     init() {
-        this._currentSong = Utils.readSong();
+        this.addSong(...Utils.readSongs());
+        this._currentSong = this._songs[0];
+    }
+
+    addSong(...filename){
+        this._songs.push(...filename);
+        this._queue.emit(AddedSong,new AddedSong(...filename));
     }
 
     makeResponseSink() {
@@ -79,7 +87,7 @@ class Queue  {
     }
 
     _removeFromSongs(index) {
-        return this._songs.splice(adjustedIndex, 1);
+        return this._songs.splice(index, 1);
     }
 
     removeFromQueue({ fromTop } = {}) {

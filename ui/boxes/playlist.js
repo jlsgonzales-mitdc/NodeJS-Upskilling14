@@ -6,8 +6,10 @@ class Playlist extends TerminalList {
         super(Config.playlist);
     }
 
-    addTrack(filename) {
-        this.list.add(filename);
+    addTrack(...files) {
+        for(const file of files){
+            this.list.add(file);
+        }
     }
 
 }

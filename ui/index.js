@@ -23,5 +23,7 @@ function start() {
 }
 
 module.exports = {
-    start
+    start,
+    playlist,
+    ui
 };

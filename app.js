@@ -6,6 +6,8 @@ const Path = require('path');
 const Routes = require('./routes');
 const Engine = require('./engine');
 const UI = require('./ui');
+const AddedSong = require('./shared/events/AddedSong');
+const ui = require('./ui');
 
 void async function startApp() {
 
@@ -20,6 +22,11 @@ void async function startApp() {
         await server.register(Routes);
 
         UI.start();
+        Engine.queue._queue.on(AddedSong, (event) => {
+            const {songs} = event;
+            UI.playlist.addTrack(...songs);
+            UI.ui.render();
+        });
         Engine.start();
         await server.start();
         console.log(`Server running at: ${server.info.uri}`);
