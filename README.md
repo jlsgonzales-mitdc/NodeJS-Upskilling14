@@ -25,7 +25,7 @@ Copy mp3 files into root project folder, or use the default mp3 there, it can lo
 > npm run start
 ```
 
-In your browser go to 
-http://localhost:8080/stream 
+In your browser go to
+http://localhost:8080/stream
 
-and go listen to some music :)
+and go listen to some music :) :)
