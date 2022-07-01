@@ -25,7 +25,7 @@ class Queue  {
 
     loadNextSong(){
         this._currentSong = this._songs[0];
-        this.stream.emit(PlaySong,this._currentSong);
+        this.stream.emit(PlaySong, new PlaySong(this._currentSong));
     }
 
     addSong(...songs){
