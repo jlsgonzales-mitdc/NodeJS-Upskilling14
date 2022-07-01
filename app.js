@@ -20,7 +20,7 @@ void async function startApp() {
         await server.register(StaticFilePlugin);
         await server.register(Routes);
 
-        Engine.queue._queue.on(AddedSong, (event) => {
+        Engine.queue.stream.on(AddedSong, (event) => {
             const {songs} = event;
             UI.playlist.addTrack(...songs);
             UI.ui.render();
