@@ -20,6 +20,8 @@ function start() {
         queue.box
     );
     ui.render();
+
+    playlist.list.focus();
 }
 
 module.exports = {
