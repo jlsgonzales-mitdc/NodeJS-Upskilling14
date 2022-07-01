@@ -21,12 +21,16 @@ class Queue  {
 
     init() {
         this.addSong(...Utils.readSongs());
+        this.loadNextSong();
+    }
+
+    loadNextSong(){
         this._currentSong = this._songs[0];
     }
 
-    addSong(...filename){
-        this._songs.push(...filename);
-        this._queue.emit(AddedSong,new AddedSong(...filename));
+    addSong(...songs){
+        this._songs.push(...songs);
+        this._queue.emit(AddedSong,new AddedSong(...songs));
     }
 
     makeResponseSink() {
