@@ -1,4 +1,4 @@
-const { TerminalBox, TerminalList} = require('../shared'); 
+const { TerminalList} = require('../shared'); 
 const { Config } = require('../shared');
 
 class Playlist extends TerminalList {
