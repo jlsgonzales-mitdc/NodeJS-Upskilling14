@@ -21,7 +21,10 @@ function start() {
     );
     ui.render();
 
-    queue.list.focus();
+    playlist.list.focus();
+    ui._screen.key('tab', () => {
+        ui._screen.focused !== playlist.list ? playlist.list.focus() : queue.list.focus();
+    });
 }
 
 module.exports = {
