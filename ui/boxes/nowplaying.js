@@ -4,20 +4,10 @@ const { Config } = require('../shared');
 class NowPlaying extends TerminalBox {
     constructor() {
         super(Config.nowplaying);
-        this.setPlaylistTips();
     }
-
-    setPlaylistTips() {
-        this.box.content = `
-            3213123212
-        `;
-    }
-    setQueueTips() {
-        this.box.content = `
-            test 123
-            123
-            123
-        `;
+    
+    displaySong(song){
+        this.box.content = song;
     }
 }
 

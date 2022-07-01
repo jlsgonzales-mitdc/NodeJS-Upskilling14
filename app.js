@@ -7,6 +7,7 @@ const Routes = require('./routes');
 const Engine = require('./engine');
 const UI = require('./ui');
 const AddedSong = require('./shared/events/AddedSong');
+const { PlaySong } = require('./shared/events');
 
 void async function startApp() {
 
@@ -23,6 +24,11 @@ void async function startApp() {
         Engine.queue.stream.on(AddedSong, (event) => {
             const {songs} = event;
             UI.playlist.addTrack(...songs);
+            UI.ui.render();
+        });
+        Engine.queue.stream.on(PlaySong, (event) => {
+            const {song} = event;
+            UI.nowplaying.displaySong(song);
             UI.ui.render();
         });
 
