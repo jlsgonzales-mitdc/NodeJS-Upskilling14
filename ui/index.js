@@ -17,11 +17,11 @@ function start() {
         controls.box,
         playlist.list,
         nowplaying.box,
-        queue.box
+        queue.list
     );
     ui.render();
 
-    playlist.list.focus();
+    queue.list.focus();
 }
 
 module.exports = {

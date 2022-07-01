@@ -1,23 +1,22 @@
-const { TerminalBox} = require('../shared'); 
+const { TerminalList } = require('../shared'); 
 const { Config } = require('../shared');
 
-class Queue extends TerminalBox {
+class Queue extends TerminalList {
     constructor() {
         super(Config.queue);
-        this.setPlaylistTips();
+        this.list.add('1');
+        this.list.add('2');
+        this.list.add('3');
+        this.addListeners();
     }
 
-    setPlaylistTips() {
-        this.box.content = `
-            3213123212
-        `;
-    }
-    setQueueTips() {
-        this.box.content = `
-            test 123
-            123
-            123
-        `;
+    addListeners(){
+        this.list.key('down', () => this.list.down(1));
+        this.list.key('up', () => this.list.up(1));
+        this.list.key('delete', () => {
+            this.list.removeItem(this.list.selected); 
+            this.list.parent.render();
+        });
     }
 }
 
