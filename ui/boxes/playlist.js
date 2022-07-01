@@ -14,8 +14,12 @@ class Playlist extends TerminalList {
     }
 
     addListener(){
-        this.list.key('down', () => {this.list.down(1);});
-        this.list.key('up', () => {this.list.up(1);});
+        this.list.key('down', () => this.list.down(1));
+        this.list.key('up', () => this.list.up(1));
+        this.list.key('delete', () => {
+            this.list.removeItem(this.list.selected); 
+            this.list.parent.render();
+        });
     }
 
 }
