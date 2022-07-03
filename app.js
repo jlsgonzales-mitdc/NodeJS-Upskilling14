@@ -6,8 +6,7 @@ const Path = require('path');
 const Routes = require('./routes');
 const Engine = require('./engine');
 const UI = require('./ui');
-const AddedSong = require('./shared/events/AddedSong');
-const { PlaySong } = require('./shared/events');
+const { AddedSong, PlaySong } = require('shared');
 
 void async function startApp() {
 
