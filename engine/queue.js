@@ -96,7 +96,7 @@ class Queue  {
 
     removeFromQueue({ fromTop } = {}) {
 
-        const index = fromTop ? 1 : this._focusIndexer.get();
+        const index = fromTop ? 0 : this._focusIndexer.get();
 
         // this._removeFromBoxChildren(index);
         const [song] = this._removeFromSongs(index);
