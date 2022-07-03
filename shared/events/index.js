@@ -3,5 +3,5 @@ const PlaySong = require('./PlaySong');
 
 module.exports= {
     AddedSong,
-    PlaySong   
+    PlaySong
 };
