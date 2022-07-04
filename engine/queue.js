@@ -7,7 +7,7 @@ const Throttle = require('throttle');
 // const { ffprobeSync } = require('@dropb/ffprobe');
 
 const Utils = require('../utils');
-const { PlaySong, AddedSong } = require('../shared/events');
+const { PlaySong, AddedSong, DequeueSong } = require('../shared/events');
 
 class Queue  { 
 
@@ -99,6 +99,7 @@ class Queue  {
         const index = fromTop ? 0 : this._focusIndexer.get();
 
         // this._removeFromBoxChildren(index);
+        this.stream.emit(DequeueSong, new DequeueSong(index));
         const [song] = this._removeFromSongs(index);
         return song;
     }
