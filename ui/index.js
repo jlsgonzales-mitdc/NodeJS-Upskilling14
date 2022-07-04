@@ -5,6 +5,7 @@ const {
     NowPlaying,
     Queue
 } = require('./boxes');
+const {QueueSong} = require('shared');
 
 const ui = new View();
 const controls = new Controls();
@@ -24,6 +25,11 @@ function start() {
     library.list.focus();
     ui._screen.key('tab', () => {
         ui._screen.focused !== library.list ? library.list.focus() : queue.list.focus();
+    });
+
+    library.events.on(QueueSong, (event) => {
+        const {song} = event;
+        queue.queueSong(song);
     });
 }
 

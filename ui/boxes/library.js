@@ -1,10 +1,14 @@
+const { EventEmitter } = require('events');
+const { QueueSong } = require('shared');
 const { TerminalList} = require('../shared'); 
 const { Config } = require('../shared');
+
 
 class Library extends TerminalList {
     constructor() {
         super(Config.library);
         this.addListener();
+        this.events = new EventEmitter();
     }
 
     addTrack(...files) {
@@ -20,6 +24,13 @@ class Library extends TerminalList {
             this.list.removeItem(this.list.selected); 
             this.list.parent.render();
         });
+        this.list.key('enter', () => {
+            this.queueSong(this.list.ritems[this.list.selected]);
+        });
+    }
+
+    queueSong(song){
+        this.events.emit(QueueSong, new QueueSong(song));
     }
 
 }

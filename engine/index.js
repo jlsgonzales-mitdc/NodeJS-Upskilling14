@@ -2,9 +2,13 @@ const Queue = require('./queue');
 
 const queue = new Queue();
 
-exports.start = () => {
+const start = () => {
     queue.init();
     queue.startStreaming();
 };
 
-exports.queue = queue;
+module.exports = {
+    start,
+    queue,
+    Queue,
+};
