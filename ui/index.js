@@ -7,24 +7,24 @@ const {
 } = require('./boxes');
 const {QueueSong} = require('shared');
 
-const ui = new View();
+const view = new View();
 const controls = new Controls();
 const library = new Library();
 const nowplaying = new NowPlaying();
 const queue = new Queue();
 
 function start() {
-    ui.appendBoxes(
+    view.appendBoxes(
         controls.box,
         library.list,
         nowplaying.box,
         queue.list
     );
-    ui.render();
+    view.render();
 
     library.list.focus();
-    ui._screen.key('tab', () => {
-        ui._screen.focused !== library.list ? library.list.focus() : queue.list.focus();
+    view._screen.key('tab', () => {
+        view._screen.focused !== library.list ? library.list.focus() : queue.list.focus();
     });
 
     library.events.on(QueueSong, (event) => {
@@ -37,5 +37,5 @@ module.exports = {
     start,
     nowplaying,
     library,
-    ui
+    view
 };

@@ -23,12 +23,14 @@ void async function startApp() {
         Engine.queue.stream.on(AddedSong, (event) => {
             const {songs} = event;
             UI.library.addTrack(...songs);
-            UI.ui.render();
+            UI.view.render();
         });
         Engine.queue.stream.on(PlaySong, (event) => {
             const {song} = event;
             UI.nowplaying.displaySong(song);
-            UI.ui.render();
+            UI.view.render();
+        });
+
         });
 
         UI.start();
