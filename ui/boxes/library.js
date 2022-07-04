@@ -1,9 +1,9 @@
 const { TerminalList} = require('../shared'); 
 const { Config } = require('../shared');
 
-class Playlist extends TerminalList {
+class Library extends TerminalList {
     constructor() {
-        super(Config.playlist);
+        super(Config.library);
         this.addListener();
     }
 
@@ -24,4 +24,4 @@ class Playlist extends TerminalList {
 
 }
 
-module.exports = Playlist;
+module.exports = Library;

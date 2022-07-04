@@ -1,35 +1,35 @@
 const {View} = require('./view');
 const { 
     Controls, 
-    Playlist,
+    Library,
     NowPlaying,
     Queue
 } = require('./boxes');
 
 const ui = new View();
 const controls = new Controls();
-const playlist = new Playlist();
+const library = new Library();
 const nowplaying = new NowPlaying();
 const queue = new Queue();
 
 function start() {
     ui.appendBoxes(
         controls.box,
-        playlist.list,
+        library.list,
         nowplaying.box,
         queue.list
     );
     ui.render();
 
-    playlist.list.focus();
+    library.list.focus();
     ui._screen.key('tab', () => {
-        ui._screen.focused !== playlist.list ? playlist.list.focus() : queue.list.focus();
+        ui._screen.focused !== library.list ? library.list.focus() : queue.list.focus();
     });
 }
 
 module.exports = {
     start,
     nowplaying,
-    playlist,
+    library,
     ui
 };
