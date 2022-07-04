@@ -33,9 +33,16 @@ function start() {
     });
 }
 
+function removeSongFromQueue(song,index){
+    queue.dequeueSong(song,index);
+    view.render();
+}
+
 module.exports = {
     start,
+    removeSongFromQueue,
     nowplaying,
     library,
+    queue,
     view
 };

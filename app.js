@@ -6,7 +6,7 @@ const Path = require('path');
 const Routes = require('./routes');
 const Engine = require('./engine');
 const UI = require('./ui');
-const { AddedSong, PlaySong } = require('shared');
+const { AddedSong, PlaySong, DequeueSong } = require('shared');
 
 void async function startApp() {
 
@@ -31,6 +31,9 @@ void async function startApp() {
             UI.view.render();
         });
 
+        UI.queue.events.on(DequeueSong, (e) => {
+            const {index} = e;
+            Engine.removeSongFromQueue(index);
         });
 
         UI.start();
