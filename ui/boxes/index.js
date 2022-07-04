@@ -1,11 +1,11 @@
 const Controls = require('./controls');
-const Playlist = require('./playlist');
+const Library = require('./library');
 const NowPlaying = require('./nowplaying');
 const Queue = require('./queue');
 
 module.exports = {
     Controls,
-    Playlist,
+    Library,
     NowPlaying,
     Queue
 };
