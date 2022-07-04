@@ -10,8 +10,10 @@ class Queue extends TerminalList {
         this.events = new EventEmitter();
     }
 
-    queueSong(song) {
-        this.list.add(song);
+    queueSong(...songs) {
+        for(const song of songs){
+            this.list.add(song);
+        }
         this.list.parent.render();
     }
 
