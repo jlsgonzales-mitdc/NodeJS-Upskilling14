@@ -28,6 +28,10 @@ void async function startApp() {
             const {song} = event;
             UI.nowplaying.displaySong(song);
         });
+        Engine.queue.stream.on(DequeueSong, (event) => {
+            const {index} = event;
+            UI.queue.dequeueSong(index);
+        });
 
         UI.queue.events.on(DequeueSong, (e) => {
             const {index} = e;

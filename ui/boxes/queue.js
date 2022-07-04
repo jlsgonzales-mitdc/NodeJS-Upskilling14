@@ -17,13 +17,17 @@ class Queue extends TerminalList {
         this.list.parent.render();
     }
 
+    dequeueSong(index){
+        this.list.removeItem(index); 
+        this.list.parent.render();
+    }
+
     addListeners(){
         this.list.key('down', () => this.list.down(1));
         this.list.key('up', () => this.list.up(1));
         this.list.key('delete', () => {
             this.events.emit(DequeueSong, new DequeueSong(this.list.selected));
-            this.list.removeItem(this.list.selected); 
-            this.list.parent.render();
+            this.dequeueSong(this.list.selected); 
         });
     }
 }
