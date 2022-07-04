@@ -17,7 +17,7 @@ const Config = {
         style
     },
     playlist:{
-        label: 'Playlist',
+        label: 'Library',
         border,
         style,
         left: 0,
