@@ -4,10 +4,12 @@ const { Config } = require('../shared');
 class Queue extends TerminalList {
     constructor() {
         super(Config.queue);
-        this.list.add('1');
-        this.list.add('2');
-        this.list.add('3');
         this.addListeners();
+    }
+
+    queueSong(song) {
+        this.list.add(song);
+        this.list.parent.render();
     }
 
     addListeners(){
