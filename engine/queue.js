@@ -18,8 +18,8 @@ class Queue  {
         this.stream = new EventEmitter();
     }
 
-    init(...songs) {
-        this.addSong(...songs);
+    init() {
+        this.addSong(...Utils.readSongs());
         this.loadNextSong();
     }
 

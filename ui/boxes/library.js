@@ -1,10 +1,12 @@
 const { EventEmitter } = require('events');
+const { QueueSong } = require('shared');
 const { TerminalList} = require('../shared'); 
 const { Config } = require('../shared');
-const { QueueSong } = require('shared');
-class Playlist extends TerminalList {
+
+
+class Library extends TerminalList {
     constructor() {
-        super(Config.playlist);
+        super(Config.library);
         this.addListener();
         this.events = new EventEmitter();
     }
@@ -33,4 +35,4 @@ class Playlist extends TerminalList {
 
 }
 
-module.exports = Playlist;
+module.exports = Library;
