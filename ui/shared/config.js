@@ -6,6 +6,11 @@ const style =  {
     }
 };
 const border = { type: 'line' };
+const focus = {
+    border: {
+        fg: 'blue'
+    }
+};
 const Config = {
     controls: {
         label: 'Controls',
@@ -19,7 +24,14 @@ const Config = {
     library:{
         label: 'Library',
         border,
-        style,
+        style: {
+            fg: 'grey',
+            bg: 'black',
+            border: {
+                fg: '#000000'
+            },
+            focus
+        },
         left: 0,
         bottom: 0,
         width: '50%',
@@ -32,16 +44,24 @@ const Config = {
         right: 0,
         bottom: 6,
         width: '50%',
-        height: 4
+        height: 5,
+        tags: true
     },
     queue:{
         label: 'Queue',
         border,
-        style,
+        style: {
+            fg: 'grey',
+            bg: 'black',
+            border: {
+                fg: '#000000'
+            },
+            focus
+        },
         right: 0,
-        bottom: 10,
+        bottom: 11,
         width: '50%',
-        height: '95%-10',
+        height: '95%-11'
     }
 
 };
