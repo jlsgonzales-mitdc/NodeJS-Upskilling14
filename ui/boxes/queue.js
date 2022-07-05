@@ -1,3 +1,5 @@
+const { EventEmitter } = require('events');
+const { DequeueSong } = require('shared');
 const { TerminalList } = require('../shared'); 
 const { Config } = require('../shared');
 
@@ -5,10 +7,18 @@ class Queue extends TerminalList {
     constructor() {
         super(Config.queue);
         this.addListeners();
+        this.events = new EventEmitter();
     }
 
-    queueSong(song) {
-        this.list.add(song);
+    queueSong(...songs) {
+        for(const song of songs){
+            this.list.add(song);
+        }
+        this.list.parent.render();
+    }
+
+    dequeueSong(index){
+        this.list.removeItem(index); 
         this.list.parent.render();
     }
 
@@ -16,8 +26,8 @@ class Queue extends TerminalList {
         this.list.key('down', () => this.list.down(1));
         this.list.key('up', () => this.list.up(1));
         this.list.key('delete', () => {
-            this.list.removeItem(this.list.selected); 
-            this.list.parent.render();
+            this.events.emit(DequeueSong, new DequeueSong(this.list.selected));
+            this.dequeueSong(this.list.selected); 
         });
     }
 }

@@ -7,7 +7,8 @@ class NowPlaying extends TerminalBox {
     }
     
     displaySong(song){
-        this.box.content = song;
+        this.box.setContent('\n{center} >>> '+song+' {/center}');
+        this.box.parent.render();
     }
 }
 

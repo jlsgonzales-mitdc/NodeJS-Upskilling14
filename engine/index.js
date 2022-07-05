@@ -7,8 +7,13 @@ const start = () => {
     queue.startStreaming();
 };
 
+function removeSongFromQueue(index){
+    queue._removeFromSongs(index);
+}
+
 module.exports = {
     start,
+    removeSongFromQueue,
     queue,
-    Queue,
+    Queue
 };
