@@ -19,6 +19,7 @@
     "dotenv": "^8.2.0",
     "neo-blessed": "^0.2.0",
     "shared": "file:shared",
+    "socket.io": "^4.5.1",
     "throttle": "^1.0.3"
   },
   "devDependencies": {

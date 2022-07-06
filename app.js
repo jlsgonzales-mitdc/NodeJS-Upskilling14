@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 const Hapi = require('@hapi/hapi');
+const socketIO = require('socket.io');
 const StaticFilePlugin = require('@hapi/inert');
 const Path = require('path');
 const Routes = require('./routes');
 const Engine = require('./engine');
 const UI = require('./ui');
 const { AddedSong, PlaySong, DequeueSong } = require('shared');
+const { moodService } = require('./services');
 
 void async function startApp() {
 
@@ -19,6 +21,20 @@ void async function startApp() {
         });
         await server.register(StaticFilePlugin);
         await server.register(Routes);
+
+        const io = socketIO(server.listener);
+
+        io.on('connection', (socket) => {
+            socket.on('message', (a) => {
+                moodService.countEmoji(a);
+                moodService.events.emit('moodSent', '');
+            });
+        });
+
+        moodService.events.on('moodSent',() => {
+            io.emit('broadcast',moodService.getMood());
+        });
+
 
         Engine.queue.stream.on(AddedSong, (event) => {
             const {songs} = event;
