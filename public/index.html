@@ -7,12 +7,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="screen" href="/index.css" />
     <script>
+        const normal = "/nodejs-logo.png";
+        const listen = "/listen.gif";
+        const dance = "/dance.gif";
+        const party = "/party.gif";
+
         function changeUI(mood) {
-            if(mood !== 'received'){
-                const title = document.getElementById('title')
-                title.innerHTML = mood
+            const element = document.getElementById('logo');
+            if(mood === "listen"){
+                element.src = listen
+            } else if(mood === 'dance'){
+                element.src = dance
+            } else if (mood ==='party') {
+                element.src = party
             } else {
-                title.innerHTML = 'Very Cool Radio'
+                element.src = normal
             }
         }
     </script>
@@ -33,14 +42,19 @@
     </script>      
 </head>
 <body>
-    <!-- TODO Emoji triggers -->
-    <button class="trigger" value="Happy">1</button>
-    <button class="trigger" value="Sad" >2</button>
+    <!-- TODO make buttons with icon and center of screen then disable
+    TODO enable after 10s of clicking -->
+
+    
     <div id='main'>
         <h1 id="title">Very Cool Radio</h1>
         <img id="logo" src="/nodejs-logo.png">
         <div id='radio'>
             <audio id="audio" src="/stream" preload="none" controls autoplay></audio>
+        </div>
+        <div>
+            <input type="button" class="trigger sad" value="Sad" ></input >
+            <input type="button" class="trigger happy" value="Happy"></input >
         </div>
     </div>
 </body>

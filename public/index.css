@@ -21,3 +21,20 @@ body {
 #logo {
     margin-bottom: 20px
 }
+
+.trigger{
+    width: 100px;
+    height: 100px;
+    border: 0;
+    font-size: 0;
+}
+
+.trigger.happy{
+    background: url('happy.png');
+    background-size: cover;
+}
+.trigger.sad{
+    background: url('sad.png');
+    background-size: cover;
+
+}
